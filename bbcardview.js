@@ -21,96 +21,109 @@ if (!document.getElementById('CustomStyles')) {
     }).forEach( function([key,val]) { style.setAttribute(key, val) })
     style.appendChild(document.createTextNode(`
 div#containerdiv.edge-to-edge {
-border-left:none;
-border-right:none;
-margin:0;
-padding-left:1.5rem;
-padding-top:2.5rem;
+	border-left:none;
+	border-right:none;
+	margin:0;
+	padding-left:1.5rem;
+	padding-top:2.5rem;
 }
 
 div#containerdiv.inset {
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.5+0,0+100 */
-background: -moz-linear-gradient(top,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
-box-shadow:0rem 0rem 1rem rgba(0,0,0,.5) inset;	
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.5+0,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	box-shadow:0rem 0rem 1rem rgba(0,0,0,.5) inset;	
 }
 
 div#containerdiv.striped {
-background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAABdJREFUGBljYCAA7t69+x+vklEF8OABAP41IEetkuhTAAAAAElFTkSuQmCC) repeat;	
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAABdJREFUGBljYCAA7t69+x+vklEF8OABAP41IEetkuhTAAAAAElFTkSuQmCC) repeat;	
 }
 
 ul#content_listContainer.contentList.cards {
-display:flex;
-padding:0.5rem;
-flex-wrap:wrap;
+	display:flex;
+	padding:0.5rem;
+	flex-wrap:wrap;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read {
-flex: 0 0 25rem;
-margin: 1rem;
-padding:2rem;
-border: none;
-border-radius: 0.35rem;
-box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.05);
-background:white !important;	
+	flex: 0 0 25rem;
+	margin: 1rem;
+	padding:2rem;
+	border: none;
+	border-radius: 0.35rem;
+	box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.05);
+	background:white !important;	
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read div.attic {
-margin:-2rem -2rem 2rem;
-padding:0.75rem;
-background:#eee;
-border-top-left-radius:0.35rem;
-border-top-right-radius:0.35rem;
+	margin:-2rem -2rem 2rem;
+	padding:0.75rem;
+	background:#eee;
+	border-top-left-radius:0.35rem;
+	border-top-right-radius:0.35rem;
+	display: flex;
+	align-items: center;
+}
+
+ul#content_listContainer.contentList.cards li.liItem.read div.attic.overlay-dark {
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	margin: 0;
+	background: rgba(0,0,0,.35);
+	color: white;
+	-webkit-backdrop-filter: blur(1rem);
+	backdrop-filter: blur(1rem);	
 }
 
 
 ul#content_listContainer.contentList.cards li.liItem.read:hover {
-background:white !important;	
+	background:white !important;	
 }
 
 
 ul#content_listContainer.contentList.cards li.liItem.read img.item_icon {
-display:none;
+	display:none;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read div.header {
-background-size:cover !important;
-background-repeat:no-repeat;
-margin:-2rem -2rem 2rem;
-border-top-left-radius:0.35rem;
-border-top-right-radius:0.35rem;
-height:14rem;
-
+	background-size:cover !important;
+	background-repeat:no-repeat;
+	margin:-2rem -2rem 2rem;
+	border-top-left-radius:0.35rem;
+	border-top-right-radius:0.35rem;
+	height:14rem;
 }
 
-div.attic + div.header {
-border-radius:0 !important;
+div.attic:not(.overlay-dark):not(.overlay-light) + div.header {
+	border-radius:0 !important;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read div.item {
-padding-left:0;
+	padding-left:0;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read div.item div.card-label {
-color:#777;
+	color:#777;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read div.item h3 {
-font-size:1.75rem;
+	font-size:1.75rem;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read div.item h3 a,ul#content_listContainer.contentList.cards li.liItem.read div.item h3 a span {
-text-decoration:none !important;
+	text-decoration:none !important;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read:hover div.item h3 a, ul#content_listContainer.contentList.cards li.liItem.read:hover div.item h3 a span {
-text-decoration:underline !important;
+	text-decoration:underline !important;
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read div.details {
-padding-left:0;
+	padding-left:0;
 }
     `))
     head.appendChild(style);
@@ -154,7 +167,7 @@ if ((editingStatusElement == null) || (editingStatusElement.innerText == "OFF"))
 			}
 
 			if (atticElement = vtbe.childElements().find(function(y) { return y.innerText.match(/^Card Attic:.+YES$/) })) {
-				let atticStyle, atticText
+				let atticStyle, atticText, atticClass
 				
 				if (atticStyleElement = vtbe.childElements().find(function(y) { return y.innerText.match(/^Card Attic Style:/) })) {
 					let atticStyleMatches = atticStyleElement.innerText.match(/:\s+(.+)/)
@@ -166,13 +179,18 @@ if ((editingStatusElement == null) || (editingStatusElement.innerText == "OFF"))
 					atticText = atticTextMatches[1]
 					atticTextElement.remove()
 				}
+				if (atticClassElement = vtbe.childElements().find(function(y) { return y.innerText.match(/^Card Attic Class:/) })) {
+					let atticClassMatches = atticClassElement.innerText.match(/:\s+(.+)/)
+					atticClass = atticClassMatches[1]
+					atticClassElement.remove()
+				}
 
 
 				let atticMatches = atticElement.innerText.match(/:\s+(.?)/)
 				let attic = document.createElement("div")
 				Object.entries({
 					"style": 		atticStyle ? atticStyle : "",
-					"class": 		"attic"
+					"class": 		"attic " + (atticClass ? atticClass : "")
 				}).forEach( function([key,val]) { attic.setAttribute(key, val) })
 				if (atticText) {
 					attic.appendChild(document.createTextNode(atticText))
