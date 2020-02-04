@@ -75,8 +75,8 @@ ul#content_listContainer.contentList.cards li.liItem.read div.attic.overlay-dark
 	margin: 0;
 	background: rgba(0,0,0,.35);
 	color: white;
-	-webkit-backdrop-filter: blur(1rem);
-	backdrop-filter: blur(1rem);	
+	-webkit-backdrop-filter: blur(0.5rem);
+	backdrop-filter: blur(0.5rem);	
 }
 
 
