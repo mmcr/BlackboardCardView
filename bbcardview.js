@@ -20,6 +20,9 @@ if (!document.getElementById('CustomStyles')) {
 	    "id": 		"CustomStyles"
     }).forEach( function([key,val]) { style.setAttribute(key, val) })
     style.appendChild(document.createTextNode(`
+:root {
+	--card-default-width: 25rem;
+}	    
 div#containerdiv.edge-to-edge {
 	border-left:none;
 	border-right:none;
@@ -48,7 +51,7 @@ ul#content_listContainer.contentList.cards {
 }
 
 ul#content_listContainer.contentList.cards li.liItem.read {
-	flex: 0 0 25rem;
+	flex: 0 0 var(--card-default-width);
 	margin: 1rem;
 	padding:2rem;
 	border: none;
@@ -130,7 +133,8 @@ ul#content_listContainer.contentList.cards li.liItem.read div.details {
 }
 let editingStatusElement = document.getElementById('statusText')
 if ((editingStatusElement == null) || (editingStatusElement.innerText == "OFF")) {
-    let wrapperClass = ""
+    let wrapperClass
+    let wrapperWidth
     Array.from(document.getElementsByClassName('liItem read')).forEach(function(x) {
 	    if (x.querySelector('h3 span[style]').innerText == "Card Script") {
 		    x.setAttribute('style', 'display:none;')
@@ -143,6 +147,17 @@ if ((editingStatusElement == null) || (editingStatusElement.innerText == "OFF"))
 			    wrapperClass = wrapperClassMatches[1]
 			    wrapperClassElement.remove()
 		    }
+
+			if (wrapperWidthElement = vtbe.childElements().find(function(y) { return y.innerText.match(/^Card Default Width:/) })) {
+				let wrapperWidthMatches = wrapperWidthElement.innerText.match(/:\s+(.+)/)
+				wrapperWidth = wrapperWidthMatches[1]
+				wrapperWidthElement.remove()
+				
+				let customStylesElement = document.getElementById("CustomStyles");
+				style.appendChild(document.createTextNode(`:root {
+	--card-default-width: ${wrapperWidth};
+}`))
+			}
 
 
 			if (labelElement = vtbe.childElements().find(function(y) { return y.innerText.match(/^Card Label:/) })) {
